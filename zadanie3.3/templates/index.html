@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+{% block scripts %}
+    {{ super() }}
+    {{ moment.include_moment() }}
+    {{ moment.locale('pl') }}
+{% endblock %}
+{% block title %}{{ title }}{% endblock %}
+{% block navbar %}
+    {% if userLogin %}
+        {% include "includes/navbarlogin.html" %}
+    {% else %}
+        {% include "includes/navbar.html" %}
+    {% endif %}
+{% endblock %}
+{% block content %}
+
+{% include "includes/footer.html" %}
+{% endblock %}
