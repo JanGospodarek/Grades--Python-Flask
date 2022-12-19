@@ -29,7 +29,6 @@ users = {
 }
 print(users)
 def countAverage(subjectValue, termValue):
-    """funkcja obliczająca średnią ocen"""
     with open('data/grades.json', encoding='utf-8') as file:
         grades = json.load(file)
         file.close()
