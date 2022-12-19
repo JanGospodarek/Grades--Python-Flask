@@ -56,7 +56,7 @@ def countAverage(subjectValue, termValue):
     return round(totlaSum / totalLen, 2)
 
 
-def yearlyAverage(value):
+def avg(value):
     with open('data/grades.json', encoding='utf-8') as file:
         grades = json.load(file)
         file.close()
@@ -81,7 +81,7 @@ with open('data/grades.json', encoding='utf-8') as file:
     grades = json.load(file)
     file.close()
 for subject,val in grades.items():
-    grade=yearlyAverage(subject)
+    grade=avg(subject)
     subjects.append({'subject':subject,'grade':grade})
 subjects.sort(key=lambda x: x['grade'], reverse=True)
 
@@ -122,10 +122,9 @@ def dashboard():
         grades = json.load(file)
         file.close()
     return render_template('dashboard.html', title='Dashboard', userLogin=session.get('userLogin'), date=date,
-                           grades=grades, countAverage=countAverage, yearlyAverage=yearlyAverage,
+                           grades=grades, countAverage=countAverage, avg=avg,
                            dangers=danger,bestGrades=bestGrades)
 
 if __name__ == '__main__':
     app.run(debug=True)
 
-# e-szkolenia.net
